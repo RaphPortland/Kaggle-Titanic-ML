@@ -1,35 +1,6 @@
 import numpy as np
 import pandas as pd
 
-
-def preprocess(my_data):
-
-    my_data = my_data.drop("Name", axis = 1) # drop the columns named "Name"
-    my_data = my_data.drop("PassengerId", axis = 1) # drop the column named "IdPassenger"
-    my_data = my_data.drop("Cabin", axis = 1) # drop the column named "Cabin"
-    my_data = my_data.drop("Ticket", axis = 1) # drop the column named "Ticket"
-
-    my_data.Age = my_data.Age.fillna(my_data.Age.mean()) # replace NAN values for "Age" by the average Age of the passengers
-    my_data.groupby('Embarked').count()  
-    my_data.Embarked = my_data.Embarked.fillna('S') # S is the most occures the most in this dataset
-
-
-    my_data['Embarked'] = pd.Categorical(my_data['Embarked'])
-    dfDummies = pd.get_dummies(my_data['Embarked'], prefix = 'category')
-    my_data = my_data.join(dfDummies)
-    my_data = my_data.drop("Embarked", axis = 1) # drop the column named "Ticket"
-
-    my_data['Sex'] = pd.Categorical(my_data['Sex'])
-    dfDummies = pd.get_dummies(my_data['Sex'], prefix = 'Sex_')
-    my_data = my_data.join(dfDummies)
-    my_data = my_data.drop("Sex", axis = 1) # drop the column named "Ticket"
-
-    my_data.Age = (my_data.Age - my_data.Age.min()) / (my_data.Age.max() - my_data.Age.min())
-    my_data.Fare = (my_data.Fare - my_data.Fare.min()) / (my_data.Fare.max() - my_data.Fare.min())
-
-    return my_data;
-
-
 # GRADED FUNCTION: sigmoid
 
 def sigmoid(z):
