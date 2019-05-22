@@ -1,4 +1,4 @@
-#1233/11160, Best entry : 0.79904 (79.9%)
+##### Score : #1233/11160, Best entry : 0.79904 (79.9%)
 
 Kaggle competition from : https://www.kaggle.com/c/titanic/overview <br>
 Data from : https://www.kaggle.com/c/titanic/data <br>
